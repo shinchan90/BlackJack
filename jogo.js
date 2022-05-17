@@ -16,6 +16,9 @@ let game_over = false;
 let start = false;
 
 let start_game = document.getElementById("jogar");
+let hit = document.getElementById("hit");
+let stay = document.getElementById("stay");
+
 function deck()
 {
     let cartas_deck = [];
@@ -119,8 +122,22 @@ start_game.addEventListener("click", function()
     cartas_player = [criar_deck.shift, criar_deck.shift];
     
     mostrar();
+    start_game.style.display = "none";
+    hit.style.display = "inline";
+    stay.style.display = "inline";
+    hit.addEventListener("click", function()
+    {
+        cartas_player.push(criar_deck.shift);
+        mostrar();
+    });
 
-})
+    stay.addEventListener("click", function()
+    {
+        termino_jogo();
+        mostrar();
+    });
+
+});
 
 function termino_jogo()
 {
