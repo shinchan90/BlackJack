@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jogo.js"></script>
     <title>BlackJack</title>
 </head>
 <body>
@@ -18,8 +19,8 @@
         5 - Se o jogador der Bust (>21) o Dealer ganha automaticamente.
     </p>
 
-    <button id="jogar">Jogar</button>
-    <button id="hit">Hit</button>
-    <button id="stay">Stay</button>
+    <button id="jogar" onclick="start_game()">Jogar</button>
+    <button id="botao_hit" onclick="hit()">Hit</button>
+    <button id="botao_stay" onclick="stay()">Stay</button>
 </body>
 </html>

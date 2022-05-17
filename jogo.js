@@ -17,9 +17,9 @@ let player_win = false;
 let game_over = false;
 let start = false;
 
-let start_game = document.getElementById("jogar");
-let hit = document.getElementById("hit");
-let stay = document.getElementById("stay");
+let id_jogo = document.getElementById("jogar");
+let id_hit = document.getElementById("hit");
+let id_stay = document.getElementById("stay");
 
 function deck()
 {
@@ -30,10 +30,12 @@ function deck()
         for (let x = 0; x < numeros.length; x++)
         {
             
-            let carta = {naipe : naipes[i], numero : numeros[x]};
+            carta = {naipe : naipes[i], numero : numeros[x]};
         }
         cartas_deck.push(carta);
+        
     }
+    
     return cartas_deck;
 }
 
@@ -122,8 +124,9 @@ function mostrar()
     "Pontuação: " + score_player;
 }
 
-start_game.addEventListener("click", function()
+function start_game()
 {
+    
     start = true;
     dealer_win = false;
     player_win = false;
@@ -133,22 +136,26 @@ start_game.addEventListener("click", function()
     cartas_player = [criar_deck.shift, criar_deck.shift];
     
     mostrar();
-    start_game.style.display = "none";
-    hit.style.display = "inline";
-    stay.style.display = "inline";
-    hit.addEventListener("click", function()
+    jogar.style.display = "none";
+    botao_hit.style.display = "inline";
+    botao_stay.style.display = "inline";
+    hit();
+    stay();
+
+    
+
+}
+function hit()
     {
         cartas_player.push(criar_deck.shift);
         mostrar();
-    });
+    }
 
-    stay.addEventListener("click", function()
+function stay()
     {
         termino_jogo();
         mostrar();
-    });
-
-});
+    }
 
 function termino_jogo()
 {
