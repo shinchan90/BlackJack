@@ -5,11 +5,13 @@ let score = 0;
 let score_dealer = 0;
 let score_player = 0;
 let criar_deck = [];
+let carta = [];
 let cartas_dealer =[];
 let cartas_player =[];
 let cartas_deck = [];
 let string_dealer = "";
 let string_player = "";
+let empate = false;
 let dealer_win = false;
 let player_win = false;
 let game_over = false;
@@ -25,10 +27,10 @@ function deck()
     for (let i = 0; i < naipes.length; i++)
     {
         
-        for (let x = 0; x < cartas.length; x++)
+        for (let x = 0; x < numeros.length; x++)
         {
             
-            let carta = {naipe : naipes[naipe_valor], numero : numeros[carta_valor]};
+            let carta = {naipe : naipes[i], numero : numeros[x]};
         }
         cartas_deck.push(carta);
     }
@@ -39,7 +41,7 @@ function randomize_deck(cartas_deck)
 {
     for(let i = 0; i< cartas_deck.length; i++)
     {
-        let shuffle = Math.trunc(Math.random()* cartas_deck,length);
+        let shuffle = Math.trunc(Math.random() * cartas_deck.length);
         let tmp = cartas_deck[shuffle];
         cartas_deck[shuffle] = cartas_deck[i];
         cartas_deck[i] = tmp;
@@ -57,22 +59,31 @@ function valores_cartas(carta)
     {
         case "Dois":
             valor = 2;
+            break;
         case "Tres":
             valor = 3;
+            break;
         case "Quatro":
             valor = 4;
+            break;
         case "Cinco":
             valor = 5;
+            break;
         case "Seis":
             valor = 6;
+            break;
         case "Sete":
             valor = 7;
+            break;
         case "Oito":
             valor = 8;
+            break;
         case "Nove":
             valor = 9;
+            break;
         case "Ás":
             valor = 11;
+            break;
         default:
             valor = 10;
     }
@@ -151,6 +162,11 @@ function termino_jogo()
     else if((score_player <= 21 && score_player > score_dealer) || (score_player > 21 && score_player < score_dealer))
     {
         player_win = true;
+    }
+
+    else if(score_player == score_dealer)
+    {
+        empate = true;
     }
 
     
