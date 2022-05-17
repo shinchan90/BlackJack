@@ -9,6 +9,8 @@ let cartas_player =[];
 let cartas_deck = [];
 let string_dealer = "";
 let string_player = "";
+let dealer_win = false;
+let player_win = false;
 
 function deck()
 {
@@ -95,4 +97,24 @@ function mostrar()
 
     score_dealer = pontuacao(cartas_dealer);
     score_player = pontuacao(cartas_player);
+
+    "O dealer tem: "+ cartas_dealer +"\n";
+    "Pontuação: " + score_dealer +"\n\n\n";
+    "Voce tem: "+ cartas_player +"\n";
+    "Pontuação: " + score_player;
+}
+
+function termino_jogo()
+{
+    if((score_dealer <= 21 && score_dealer> score_player) || (score_dealer > 21 && score_dealer< score_player))
+    {
+        dealer_win = true;
+    }
+
+    else if((score_player <= 21 && score_player > score_dealer) || (score_player > 21 && score_player < score_dealer))
+    {
+        player_win = true;
+    }
+
+    
 }
