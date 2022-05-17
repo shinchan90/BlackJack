@@ -4,6 +4,7 @@ var valor = 0;
 let score = 0;
 let score_dealer = 0;
 let score_player = 0;
+let criar_deck = [];
 let cartas_dealer =[];
 let cartas_player =[];
 let cartas_deck = [];
@@ -12,6 +13,9 @@ let string_player = "";
 let dealer_win = false;
 let player_win = false;
 let game_over = false;
+let start = false;
+
+let start_game = document.getElementById("jogar");
 function deck()
 {
     let cartas_deck = [];
@@ -104,7 +108,19 @@ function mostrar()
     "Pontuação: " + score_player;
 }
 
+start_game.addEventListener("click", function()
+{
+    start = true;
+    dealer_win = false;
+    player_win = false;
+    criar_deck = deck();
+    randomize_deck(criar_deck);
+    cartas_dealer = [criar_deck.shift, criar_deck.shift];
+    cartas_player = [criar_deck.shift, criar_deck.shift];
+    
+    mostrar();
 
+})
 
 function termino_jogo()
 {
