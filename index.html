@@ -10,17 +10,19 @@
 <body>
     <h1 id="title">BlackJack</h1>
     <h3 id="welcome">Bem Vindo, ao BlackJack!</h3>
-    <h4>Regras Principais:<br>
+    <h4 id="regras">Regras Principais:<br>
     </h4>
-    <p>1 - O objetivo do jogo é derrotar a mão do dealer, sem ultrapassar o valor 21. <br>
+    <p id="lista_regras">1 - O objetivo do jogo é derrotar a mão do dealer, sem ultrapassar o valor 21. <br>
         2 - São atribuidas duas cartas ao jogador e ao dealer, porém uma das cartas do dealer está oculta. <br>
         3 - Cartas do 2 ao 10, independentemento do naipe, valem o seu número de face. Valete, Rei e Rainha valem todos 10, e Ases valem 11. <br>
         4 - Pressione "Hit" para pedir outra carta (Não há limite desde que a soma não passe de 21) e "Stand" para avançar com a mão. <br>
         5 - Se o jogador der Bust (>21) o Dealer ganha automaticamente.
     </p>
-
+    <p style="display:none;" id="inicio_jogo">Pressione Hit para pedir mais uma carta e Stay para finalizar com as cartas que possui!</p>
+    <br>
     <button id="jogar" onclick="start_game()">Jogar</button>
-    <button id="botao_hit" onclick="hit()">Hit</button>
-    <button id="botao_stay" onclick="stay()">Stay</button>
+    <br>
+    <button style="display:none ;" id="botao_hit" onclick="hit()">Hit</button>
+    <button style="display:none ;"id="botao_stay" onclick="stay()">Stay</button>
 </body>
 </html>
