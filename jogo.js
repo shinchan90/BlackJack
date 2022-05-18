@@ -42,7 +42,7 @@ function deck()
 
 function randomize_deck(cartas_deck)
 {
-    for(let i = 0; i< cartas_deck.length; i++)
+    for(let i = 0; i < cartas_deck.length; i++)
     {
         let shuffle = Math.trunc(Math.random() * cartas_deck.length);
         let tmp = cartas_deck[shuffle];
@@ -96,7 +96,7 @@ function valores_cartas(carta)
 
 function pontuacao(lista_cartas)
 {
-    for(let i = 0; lista_cartas.length; i++)
+    for(let i = 0; i < lista_cartas.length; i++)
     {
         score += valores_cartas(lista_cartas[i])
     }
@@ -108,12 +108,12 @@ function pontuacao(lista_cartas)
 function mostrar()
 {
     
-    for(let i = 0; cartas_dealer.length; i++)
+    for(let i = 0; i < cartas_dealer.length; i++)
     {
         string_dealer += string_cartas(cartas_dealer[i]);
     }
 
-    for (let i=0; cartas_player.length; i++)
+    for (let i=0; i < cartas_player.length; i++)
     {
         string_player += string_cartas(cartas_player[i]);
     }
@@ -135,8 +135,8 @@ function start_game()
     player_win = false;
     criar_deck = deck();
     randomize_deck(criar_deck);
-    cartas_dealer = [criar_deck.shift, criar_deck.shift];
-    cartas_player = [criar_deck.shift, criar_deck.shift];
+    cartas_dealer = [criar_deck.shift(), criar_deck.shift()];
+    cartas_player = [criar_deck.shift(), criar_deck.shift()];
     
     mostrar();
     jogar.style.display = "none";
@@ -150,7 +150,7 @@ function start_game()
 }
 function hit()
     {
-        cartas_player.push(criar_deck.shift);
+        cartas_player.push(criar_deck.shift());
         mostrar();
     }
 
