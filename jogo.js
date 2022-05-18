@@ -5,7 +5,6 @@ let score = 0;
 let score_dealer = 0;
 let score_player = 0;
 let criar_deck = [];
-let carta = [];
 let cartas_dealer =[];
 let cartas_player =[];
 let cartas_deck = [];
@@ -30,13 +29,15 @@ function deck()
         for (let x = 0; x < numeros.length; x++)
         {
             
-            carta = {naipe : naipes[i], numero : numeros[x]};
+            var carta = {naipe : naipes[i], numero : numeros[x]};
+            
         }
         cartas_deck.push(carta);
         
     }
     
     return cartas_deck;
+    
 }
 
 function randomize_deck(cartas_deck)
@@ -52,7 +53,9 @@ function randomize_deck(cartas_deck)
 
 function string_cartas(carta)
 {
+    
     return carta.numero + " de " + carta.naipe;
+    
 }
 
 function valores_cartas(carta)
