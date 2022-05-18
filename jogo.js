@@ -79,7 +79,7 @@ function valores_cartas(carta)
         case "Nove":
             return 9;
         case "Ás":
-            return 11;
+            return 1;
         default:
             return 10;
     }
@@ -87,7 +87,9 @@ function valores_cartas(carta)
 
 function pontuacao(lista_cartas)
 {
-    for(let i = 1; i < lista_cartas.length; i++)
+    let score = 0;
+    
+    for(let i = 0; i < lista_cartas.length; i++)
     {
         score += valores_cartas(lista_cartas[i]);
     }
@@ -138,7 +140,7 @@ function start_game()
     botao_stay.style.display = "inline";
     inicio_jogo.style.display = "inline";
     
-    ;
+    
     
 
 }
@@ -151,9 +153,8 @@ function hit()
 
 function stay()
     {
-        cartas_dealer.push(criar_deck.shift());
         termino_jogo();
-        mostrar();
+        
     }
 
 function termino_jogo()
