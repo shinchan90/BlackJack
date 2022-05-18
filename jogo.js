@@ -30,12 +30,12 @@ function deck()
         {
             
             var carta = {naipe : naipes[i], numero : numeros[x]};
-            
+            cartas_deck.push(carta);
         }
-        cartas_deck.push(carta);
+        
         
     }
-    
+    console.log(cartas_deck);
     return cartas_deck;
     
 }
