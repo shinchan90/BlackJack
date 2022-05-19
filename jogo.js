@@ -96,10 +96,16 @@ function pontuacao(lista_cartas)
     return score;
 }
 
+function clear()
+{
+     string_dealer = "";
+     string_player = "";
+}
 
 function mostrar()
 {
-    
+    clear();
+    clear();
     for(let i = 0; i < cartas_dealer.length; i++)
     {
         string_dealer += string_cartas(cartas_dealer[i]);
@@ -149,53 +155,53 @@ function start_game()
 
 }
 
-function hit()
+function hit_dealer()
+{
+    if(score_dealer<score_player && score_dealer<21)
     {
-        cartas_player.push(criar_deck.shift());
-        if(score_dealer<score_player && score_dealer<21)
-    {
-        cartas_dealer.push(criar_deck.shift);
+        cartas_dealer.push(criar_deck.shift());
 
     }
-        mostrar();
+
+}
+function hit()
+{
+    hit_dealer();
+    cartas_player.push(criar_deck.shift());
+    mostrar();
         
-        if(score_dealer>21 || score_player>21)
-        {
+    if(score_dealer>21 || score_player>21)
+    {
             termino_jogo();
-        }
-        console.log(cartas_dealer);
-        console.log(cartas_player);
     }
+    console.log(cartas_dealer);
+    console.log(cartas_player);
+}
 
 function stay()
     {
-        if(score_dealer<score_player && score_dealer<21)
-        {
-        cartas_dealer.push(criar_deck.shift);
-
-        }
-        termino_jogo();
+        hit_dealer();
         if(score_dealer>21 || score_player>21)
         {
             termino_jogo();
         }
+        termino_jogo();
+        mostrar();
     }
 
 function termino_jogo()
 {
     score_dealer = pontuacao(cartas_dealer);
     score_player = pontuacao(cartas_player);
-    if((score_dealer <= 21 && score_dealer> score_player) || (score_dealer > 21 && score_dealer< score_player))
+    if((score_dealer <= 21 && score_dealer> score_player) || (score_dealer > 21 && score_dealer< score_player) || score_player>21)
     {
-        dealer_win = true;
         win.innerText = "Vitória do Dealer";
         botao_hit.style.display = "none";
         botao_stay.style.display = "none";
     }
 
-    else if((score_player <= 21 && score_player > score_dealer) || (score_player > 21 && score_player < score_dealer))
+    else if((score_player <= 21 && score_player > score_dealer) || (score_player > 21 && score_player < score_dealer) || score_dealer>21)
     {
-        player_win = true;
         win.innerText = "Vitória do Player";
         botao_hit.style.display = "none";
         botao_stay.style.display = "none";
@@ -203,7 +209,6 @@ function termino_jogo()
 
     else if(score_player == score_dealer)
     {
-        empate = true;
         win.innerText = "Empate";
         botao_hit.style.display = "none";
         botao_stay.style.display = "none";
