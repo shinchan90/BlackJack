@@ -149,7 +149,11 @@ function start_game()
     player.style.display = "inline";
     sc.style.display = "inline";
     sc2.style.display = "inline";
-    
+    jogar_novo.style.display = "none";
+    dealer_win = false;
+    player_win = false;
+    empate = false;
+    win.innerText = "";
     
     
 
@@ -214,5 +218,7 @@ function termino_jogo()
         botao_stay.style.display = "none";
     }
 
+    
+    jogar_novo.style.display = "inline";
     
 }

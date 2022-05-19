@@ -1,0 +1,47 @@
+*{font-family: 'Noto Sans', sans-serif; 
+  margin: 10px;
+  }
+
+#blackj
+{
+    position: fixed;
+    height: 350px;
+    width: auto;
+    left: 830px;
+    bottom: 250px;
+}
+
+#jogar
+{
+    background-color: gray;
+    padding: 16px 32px;
+    border: none;
+    color: white;
+    font-size: 20px;;
+    position: relative;
+    left: 250px;
+    bottom: 5px;
+}
+
+.botao
+{
+    background-color: gray;
+    padding: 8px 25px;
+    border: none;
+    color: white;
+    font-size: 15px;;
+    
+}
+
+#jogar_novo
+{
+    background-color: gray;
+    padding: 16px 32px;
+    border: none;
+    color: white;
+    font-size: 20px;;
+    position: relative;
+    left: 250px;
+    bottom: 5px;
+
+}
