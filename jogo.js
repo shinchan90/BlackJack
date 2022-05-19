@@ -54,7 +54,7 @@ function randomize_deck(cartas_deck)
 function string_cartas(carta)
 {
     
-    return carta.numero + " de " + carta.naipe;
+    return " \n"+ carta.numero + " de " + carta.naipe;
     
 }
 
@@ -113,11 +113,12 @@ function mostrar()
 
     score_dealer = pontuacao(cartas_dealer);
     score_player = pontuacao(cartas_player);
-
-    "O dealer tem: "+ cartas_dealer +"\n";
-    "Pontuação: " + score_dealer +"\n\n\n";
-    "Voce tem: "+ cartas_player +"\n";
+    dealer_status.innerText = "";
+    dealer_status.innerText = " "+ string_dealer +"\n" + 
+    "Pontuação: " + score_dealer +"\n";
+    player_status.innerText = " "+ string_player +"\n" +
     "Pontuação: " + score_player;
+    
 }
 
 function start_game()
@@ -139,6 +140,9 @@ function start_game()
     botao_hit.style.display = "inline";
     botao_stay.style.display = "inline";
     inicio_jogo.style.display = "inline";
+    dealer.style.display = "inline";
+    player.style.display = "inline";
+    sc.style.display = "inline";
     
     
     
@@ -146,23 +150,30 @@ function start_game()
 }
 function hit()
     {
+        
         cartas_player.push(criar_deck.shift());
         mostrar();
-        
+        if(score_dealer>21 || score_player>21)
+        {
+            termino_jogo();
+        }
+        console.log(cartas_dealer);
+        console.log(cartas_player);
     }
 
 function stay()
     {
         termino_jogo();
-        
+        if(score_dealer>21 || score_player>21)
+        {
+            termino_jogo();
+        }
     }
 
 function termino_jogo()
 {
     score_dealer = pontuacao(cartas_dealer);
     score_player = pontuacao(cartas_player);
-    console.log(score_dealer);
-    console.log(score_player);
     if((score_dealer <= 21 && score_dealer> score_player) || (score_dealer > 21 && score_dealer< score_player))
     {
         dealer_win = true;
