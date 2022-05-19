@@ -113,11 +113,10 @@ function mostrar()
 
     score_dealer = pontuacao(cartas_dealer);
     score_player = pontuacao(cartas_player);
-    dealer_status.innerText = "";
-    dealer_status.innerText = " "+ string_dealer +"\n" + 
-    "Pontuação: " + score_dealer +"\n";
-    player_status.innerText = " "+ string_player +"\n" +
-    "Pontuação: " + score_player;
+    dealer_status.innerText = " "+ string_dealer +"\n";
+    sc_dealer.innerText = "" + score_dealer;
+    player_status.innerText = " "+ string_player +"\n";
+    sc_player.innerText = " " + score_player;
     
 }
 
@@ -143,16 +142,23 @@ function start_game()
     dealer.style.display = "inline";
     player.style.display = "inline";
     sc.style.display = "inline";
+    sc2.style.display = "inline";
     
     
     
 
 }
+
 function hit()
     {
-        
         cartas_player.push(criar_deck.shift());
+        if(score_dealer<score_player && score_dealer<21)
+    {
+        cartas_dealer.push(criar_deck.shift);
+
+    }
         mostrar();
+        
         if(score_dealer>21 || score_player>21)
         {
             termino_jogo();
@@ -163,6 +169,11 @@ function hit()
 
 function stay()
     {
+        if(score_dealer<score_player && score_dealer<21)
+        {
+        cartas_dealer.push(criar_deck.shift);
+
+        }
         termino_jogo();
         if(score_dealer>21 || score_player>21)
         {
@@ -177,16 +188,25 @@ function termino_jogo()
     if((score_dealer <= 21 && score_dealer> score_player) || (score_dealer > 21 && score_dealer< score_player))
     {
         dealer_win = true;
+        win.innerText = "Vitória do Dealer";
+        botao_hit.style.display = "none";
+        botao_stay.style.display = "none";
     }
 
     else if((score_player <= 21 && score_player > score_dealer) || (score_player > 21 && score_player < score_dealer))
     {
         player_win = true;
+        win.innerText = "Vitória do Player";
+        botao_hit.style.display = "none";
+        botao_stay.style.display = "none";
     }
 
     else if(score_player == score_dealer)
     {
         empate = true;
+        win.innerText = "Empate";
+        botao_hit.style.display = "none";
+        botao_stay.style.display = "none";
     }
 
     
