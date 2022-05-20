@@ -89,10 +89,9 @@ function pontuacao(lista_cartas)
 {
     let score = 0;
     
-    for(let i = 0; i < lista_cartas.length; i++)
-    {
-        score += valores_cartas(lista_cartas[i]);
-    }
+    lista_cartas.forEach(i => {
+        score += valores_cartas(i);
+    });
     return score;
 }
 
@@ -105,17 +104,15 @@ function clear()
 function mostrar()
 {
     clear();
-    clear();
-    for(let i = 0; i < cartas_dealer.length; i++)
-    {
-        string_dealer += string_cartas(cartas_dealer[i]);
-    }
+    
+    cartas_dealer.forEach(i => {
+        string_dealer += string_cartas(i);
+    });
    
 
-    for (let i=0; i < cartas_player.length; i++)
-    {
-        string_player += string_cartas(cartas_player[i]);
-    }
+    cartas_player.forEach(i => {
+        string_player += string_cartas(i);
+    });
 
     score_dealer = pontuacao(cartas_dealer);
     score_player = pontuacao(cartas_player);
