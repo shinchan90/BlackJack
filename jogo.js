@@ -88,11 +88,25 @@ function valores_cartas(carta)
 function pontuacao(lista_cartas)
 {
     let score = 0;
-    
+    let as = false;
+
     lista_cartas.forEach(i => {
-        score += valores_cartas(i);
+        lista = i;
+        score += valores_cartas(lista);
+
+        if(lista.numero == "Ás")
+        {
+            as = true;
+        }
     });
+    
+    if(as && score + 10 <=21)
+    {
+        return score + 10;
+    }
+
     return score;
+    
 }
 
 function clear()
