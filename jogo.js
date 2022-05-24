@@ -145,7 +145,7 @@ function start_game()
     player_win = false;
     criar_deck = deck();
     randomize_deck(criar_deck);
-    cartas_dealer = [criar_deck.shift(), criar_deck.shift()];
+    cartas_dealer = [criar_deck.shift()];
     cartas_player = [criar_deck.shift(), criar_deck.shift()];
     console.log(cartas_dealer);
     console.log(cartas_player);
