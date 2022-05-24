@@ -172,7 +172,7 @@ function start_game()
 
 function hit_dealer()
 {
-    if(score_dealer<score_player && score_dealer<21)
+    if((score_dealer<17))
     {
         cartas_dealer.push(criar_deck.shift());
 
